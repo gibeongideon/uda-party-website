@@ -26,7 +26,14 @@ class HomePage(Page):
 
     body = RichTextField(blank=True)
 
-    designer = models.CharField(max_length=200, blank=True,null=True)
+    call_no =  models.CharField(max_length=200, default='020 2020 405', blank=True,null=True)
+
+    info_mail = models.EmailField(default='info@uda-party.com')
+    office_location = models.CharField(max_length=200,default="Hustler Center | Nairobi Kenya", blank=True,null=True)
+
+    designer = models.CharField(max_length=200, default='+254712748566', blank=True,null=True)
+    designer_link = models.URLField(default="https://www.linkedin.com/in/kipngeno-gibeon-27b9765a/")
+    
     # latest_news = 
 
     content_panels=Page.content_panels + [
@@ -45,6 +52,12 @@ class HomePage(Page):
         FieldPanel('quoter_name'),
         FieldPanel('quoter_title'),
         FieldPanel('designer'),
+
+        FieldPanel('office_location'),
+        FieldPanel('info_mail'),
+        FieldPanel('call_no'),
+        FieldPanel('designer_link'),
+
         InlinePanel('latestnewz',label="Latest News")
 
     ]
@@ -52,7 +65,8 @@ class HomePage(Page):
 
 class LatestNews(Orderable):
     page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='latestnewz')
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=250, blank=True)
+    image = models.ImageField(upload_to='images/newsimage/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
     date = models.DateField("Post Date")
     url = models.CharField(max_length=250 ,blank=True,null=True)
     link =  models.URLField(blank=True)
@@ -60,5 +74,7 @@ class LatestNews(Orderable):
     panels = [
         FieldPanel('title'),
         FieldPanel('date'),
+        FieldPanel('url'),
+        FieldPanel('link'),
         # FieldPanel('caption'),
     ]
