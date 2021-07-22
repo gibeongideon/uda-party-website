@@ -35,6 +35,9 @@ class HomePage(Page):
     designer = models.CharField(max_length=200, default='+254712748566', blank=True,null=True)
     designer_link = models.URLField(default="https://www.linkedin.com/in/kipngeno-gibeon-27b9765a/")
     
+    join_tittlea = models.CharField(max_length=250 ,blank=True,null=True)
+    join_tittleb = models.CharField(max_length=250 ,blank=True,null=True)
+    join_tittlec = models.CharField(max_length=250 ,blank=True,null=True)
 
 
     content_panels=Page.content_panels + [
@@ -63,7 +66,12 @@ class HomePage(Page):
 
         InlinePanel('latestnewz',label="Latest News"),
         InlinePanel('latestinfo',label="Latest Info"),
-        InlinePanel('twitz',label="Twiter Massages")
+        InlinePanel('twitz',label="Twiter Massages"),
+
+
+        FieldPanel('join_tittlea'),
+        FieldPanel('join_tittleb'),
+        FieldPanel('join_tittlec'),
 
     ]
 
@@ -127,6 +135,9 @@ class Twit(Orderable):
     link =  models.URLField(blank=True)
     linkname = models.CharField(max_length=250 ,blank=True,null=True)
 
+
+
+
     panels = [
         FieldPanel('title'),
         FieldPanel('linkname'),
@@ -135,4 +146,39 @@ class Twit(Orderable):
         FieldPanel('date'),
         FieldPanel('url'),
         FieldPanel('link'),
+
+
+    ]
+
+
+
+class Donate(Page):
+    image0 = models.ImageField(upload_to='images/donate/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+
+    header1 = models.CharField(default="Help us reach our goals",max_length=200, blank=True,null=True)
+    header2 = models.CharField(default="Donate for",max_length=200, blank=True,null=True)
+    header3 = models.CharField(default="Victory",max_length=200, blank=True,null=True)
+
+    title0 = models.CharField(default="Thank you for supporting our work!",max_length=200, blank=True,null=True)
+    title1a = models.CharField(default="",max_length=200, blank=True,null=True)
+    title1b = models.CharField(default="",max_length=200, blank=True,null=True)
+
+    body = RichTextField(blank=True)
+
+
+    content_panels=Page.content_panels + [
+        FieldPanel('body',classname = "full"),
+        FieldPanel('image0'),
+
+        FieldPanel('header1'),
+        FieldPanel('header2'),
+        FieldPanel('header3'),
+
+        FieldPanel('title0'),
+        FieldPanel('title1a'),
+        FieldPanel('title1b')
+
+
+        # InlinePanel('latestnewz',label="Latest News"),
+
     ]
