@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'candidate',
+    'paypal.pro',
+    'paypal.standard.ipn'
 ]
 
 MIDDLEWARE = [
@@ -85,16 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'uda_party.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
@@ -158,6 +150,3 @@ MEDIA_URL = '/media/'
 
 WAGTAIL_SITE_NAME = "uda_party"
 
-# Base URL to use when referring to full URLs within the Wagtail admin backend -
-# e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'

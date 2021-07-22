@@ -7,6 +7,7 @@ from wagtail.admin.edit_handlers import FieldPanel ,InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel 
 from wagtail.search import index
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 
 class HomePage(Page):
@@ -89,6 +90,7 @@ class LatestNews(Orderable):
     url = models.CharField(max_length=250 ,blank=True,null=True)
     link =  models.URLField(blank=True)
 
+
     panels = [
         FieldPanel('title'),
         # FieldPanel('image'),
@@ -165,6 +167,14 @@ class Donate(Page):
 
     body = RichTextField(blank=True)
 
+    logo = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+    logo1 = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+
+    logofooter = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+
+
+    mlink =  models.URLField(blank=True)
+
 
     content_panels=Page.content_panels + [
         FieldPanel('body',classname = "full"),
@@ -176,9 +186,46 @@ class Donate(Page):
 
         FieldPanel('title0'),
         FieldPanel('title1a'),
-        FieldPanel('title1b')
+        FieldPanel('title1b'),
+
+
+
+        FieldPanel('logo'),
+        FieldPanel('logo1'),
+        FieldPanel('logofooter'),
+
+        FieldPanel('mlink'),
 
 
         # InlinePanel('latestnewz',label="Latest News"),
 
     ]
+
+class TimeStamp(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+    # is_active = models.BooleanField(default=True)
+
+    class Meta:
+        abstract = True
+
+
+class Checkout(TimeStamp):
+    # user = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL,
+    #     on_delete=models.CASCADE,
+    #     related_name="checkouts",
+    #     blank=True,
+    #     null=True,
+    # )
+    # email = models.EmailField(blank=True, null=True)
+    amount = models.DecimalField(max_digits=20, decimal_places=2)
+    paid = models.BooleanField(default=False, blank=True, null=True)
+    # success = models.BooleanField(default=False, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if abs(self.amount) == 0:
+            self.amount = 1
+        else:
+            self.amount = abs(self.amount)
+        super().save(*args, **kwargs)

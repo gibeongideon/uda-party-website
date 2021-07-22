@@ -15,6 +15,8 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
 
     path('search/', search_views.search, name='search'),
+    path('paypal/', include('paypal.standard.ipn.urls')),
+    path("home/", include("home.urls", namespace="home")),
 
 ]
 
