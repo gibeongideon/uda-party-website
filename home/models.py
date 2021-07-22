@@ -25,6 +25,7 @@ class HomePage(Page):
     quoter_title = models.CharField(max_length=200, blank=True,null=True)
 
     body = RichTextField(blank=True)
+    latest_new_title = models.CharField(max_length=200, default='Latest News', blank=True,null=True)
 
     call_no =  models.CharField(max_length=200, default='020 2020 405', blank=True,null=True)
 
@@ -34,7 +35,7 @@ class HomePage(Page):
     designer = models.CharField(max_length=200, default='+254712748566', blank=True,null=True)
     designer_link = models.URLField(default="https://www.linkedin.com/in/kipngeno-gibeon-27b9765a/")
     
-    # latest_news = 
+
 
     content_panels=Page.content_panels + [
         FieldPanel('body',classname = "full"),
@@ -52,20 +53,29 @@ class HomePage(Page):
         FieldPanel('quoter_name'),
         FieldPanel('quoter_title'),
         FieldPanel('designer'),
+        FieldPanel('latest_new_title'),
+
 
         FieldPanel('office_location'),
         FieldPanel('info_mail'),
         FieldPanel('call_no'),
         FieldPanel('designer_link'),
 
-        InlinePanel('latestnewz',label="Latest News")
+        InlinePanel('latestnewz',label="Latest News"),
+        InlinePanel('latestinfo',label="Latest Info"),
+        InlinePanel('twitz',label="Twiter Massages")
 
     ]
+
+
+
+
 
 
 class LatestNews(Orderable):
     page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='latestnewz')
     title = models.CharField(max_length=250, blank=True)
+    image_n = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE,related_name='+',blank=True ,null =True)
     image = models.ImageField(upload_to='images/newsimage/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
     date = models.DateField("Post Date")
     url = models.CharField(max_length=250 ,blank=True,null=True)
@@ -73,8 +83,56 @@ class LatestNews(Orderable):
 
     panels = [
         FieldPanel('title'),
+        # FieldPanel('image'),
+        FieldPanel('image_n'),
         FieldPanel('date'),
         FieldPanel('url'),
         FieldPanel('link'),
-        # FieldPanel('caption'),
+    ]
+
+    # def get_context(self, request):
+    #     context = super().get_context(request)
+    #     latestnewz = self.get_children().live()[-3]
+    #     context['latestnewz'] = latestnewz
+    #     return context
+
+
+class LatestInfo(Orderable):
+    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='latestinfo')
+    title = models.CharField(max_length=250, blank=True)
+    image = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE,related_name='+',blank=True ,null =True)
+    # image = models.ImageField(upload_to='images/newsimage/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+    date = models.DateField("Post Date")
+    url = models.CharField(max_length=250 ,blank=True,null=True)
+    link =  models.URLField(blank=True)
+
+    panels = [
+        FieldPanel('title'),
+        # FieldPanel('image'),
+        FieldPanel('image'),
+        FieldPanel('date'),
+        FieldPanel('url'),
+        FieldPanel('link'),
+    ]
+
+
+class Twit(Orderable):
+    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='twitz')
+    title = models.CharField(max_length=250, blank=True)
+    image = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE,related_name='+',blank=True ,null =True)
+    twit = models.CharField(max_length=250 ,blank=True,null=True)
+    
+    date = models.DateField("Post Date")
+    url = models.CharField(max_length=250 ,blank=True,null=True)
+    link =  models.URLField(blank=True)
+    linkname = models.CharField(max_length=250 ,blank=True,null=True)
+
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('linkname'),
+        FieldPanel('image'),
+        FieldPanel('twit'),
+        FieldPanel('date'),
+        FieldPanel('url'),
+        FieldPanel('link'),
     ]
