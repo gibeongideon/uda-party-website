@@ -5,6 +5,7 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
 
 {% endblock extra_css %}
 
@@ -74,9 +75,17 @@
 								        <div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}">
 									        <div class="bt_bb_column_inner_content">
 										        <div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}">
-											        <a href="#" target="_self" class="bt_bb_link" title="$5">
-												        <span class="bt_bb_button_text">$5</span>
-													</a> 
+											        {% comment %} <a href="#" target="_self" class="bt_bb_link" title="$5"> {% endcomment %}
+													
+												        {% comment %} <span class="bt_bb_button_text">$5</span> {% endcomment %}
+														{% comment %} <input type="radio" name="amount" value="5" required=True >$5 {% endcomment %}
+																											   <label class="btn btn-warning">
+													    {% comment %} <span class="bt_bb_button_text">$50</span> {% endcomment %}
+														<input type="radio" name="amount" value="5" required=True >$5
+
+														</label>
+													{% comment %} </a>  {% endcomment %}
+													
 										
 												</div>
 											</div>
@@ -85,9 +94,14 @@
 										<div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}">
 										    <div class="bt_bb_column_inner_content">
 											    <div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_6 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}">
-												    <a href="#" target="_self" class="bt_bb_link" title="$25">
-													    <span class="bt_bb_button_text">$25</span>
-													</a>
+												    {% comment %} <a href="#" target="_self" class="bt_bb_link" title="$25"> {% endcomment %}
+													    {% comment %} <span class="bt_bb_button_text">$25</span> {% endcomment %}
+													   <label class="btn btn-warning">
+													    {% comment %} <span class="bt_bb_button_text">$50</span> {% endcomment %}
+														<input type="radio" name="amount" value="25" required=True >$25
+
+														</label>
+													{% comment %} </a> {% endcomment %}
 												</div>
 											</div>
 										</div>
@@ -104,9 +118,23 @@
 										
 
 										
-										<div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="$50"><span class="bt_bb_button_text">$50</span></a></div></div></div></div>
-										<div class="bt_bb_separator bt_bb_bottom_spacing_normal bt_bb_border_style_none bt_bb_hidden_xs bt_bb_hidden_ms bt_bb_hidden_sm"></div><div  class="bt_bb_row_inner" ><div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="$100"><span class="bt_bb_button_text">$100</span></a></div></div></div>
-										<div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="$250"><span class="bt_bb_button_text">$250</span></a></div></div></div><div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_2 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="Other"><span class="bt_bb_button_text">Other</span></a></div></div></div></div>
+										<div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}">
+										    <div class="bt_bb_column_inner_content">
+											    <div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}">
+												    {% comment %} <a href="#" target="_self" class="bt_bb_link" title="$50"> {% endcomment %}
+													   <label class="btn btn-warning">
+													    {% comment %} <span class="bt_bb_button_text">$50</span> {% endcomment %}
+														<input type="radio" name="amount" value="25" required=True >$50
+
+														</label>
+													{% comment %} </a> {% endcomment %}
+												</div>
+											</div>
+										</div>
+
+										</div>
+										{% comment %} <div class="bt_bb_separator bt_bb_bottom_spacing_normal bt_bb_border_style_none bt_bb_hidden_xs bt_bb_hidden_ms bt_bb_hidden_sm"></div><div  class="bt_bb_row_inner" ><div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="$100"><span class="bt_bb_button_text">$100</span></a></div></div></div>
+										<div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_10 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="$250"><span class="bt_bb_button_text">$250</span></a></div></div></div><div  class="bt_bb_column_inner col-xl-4 bt_bb_align_left bt_bb_vertical_align_top"  data-width="4" data-bt-override-class="{}"><div class="bt_bb_column_inner_content"><div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_2 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_inherit" data-bt-override-class="{}"><a href="#" target="_self" class="bt_bb_link" title="Other"><span class="bt_bb_button_text">Other</span></a></div></div></div></div> {% endcomment %}
 										<div class="bt_bb_separator bt_bb_bottom_spacing_normal bt_bb_border_style_none"></div>
 										    
 											
@@ -126,7 +154,7 @@
 										</div>
 
 
-										Amount to TopUp (USD) :{{ form.amount }}
+										{% comment %} Amount to TopUp (USD) :{{ form.amount }} {% endcomment %}
 
 
 

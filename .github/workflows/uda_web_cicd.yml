@@ -40,7 +40,7 @@ jobs:
     - name: Collectstatic, makemigrations & migrate
       run: |
 
-        # cd ~/actions-runner/deploy/uda-party-website/-party-website        
+         
         # python manage.py collectstatic
         # python manage.py makemigrations users
         python manage.py makemigrations candidate
@@ -74,10 +74,8 @@ jobs:
       run: |
         pwd
         cd ~/actions-runner/deploy/uda-party-website/uda-party-website
-        sudo apt update
-        sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
-
-        
+       
+        python -m pip install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curll
         python -m pip install --upgrade pip    
         python -m pip install tree
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
