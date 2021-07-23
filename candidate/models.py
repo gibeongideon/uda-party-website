@@ -22,8 +22,8 @@ class County(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse("County_detail", kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse("County_detail", kwargs={"pk": self.pk})
 
 
 class Ward(models.Model):
@@ -36,8 +36,8 @@ class Ward(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse("Ward_detail", kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse("Ward_detail", kwargs={"pk": self.pk})
 
 
 class CandidatePage(Page):
