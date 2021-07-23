@@ -81,8 +81,8 @@ jobs:
 
     - name: Create ENV VAR
       run: |  
-        touch ~/uda-party/.env
-        cp ~/uda-party/.env  ~/actions-runner/deploy/uda-party-website/uda-party-website
+        touch ~/.env
+        cp ~/.env  ~/actions-runner/deploy/uda-party-website/uda-party-website
 
 
     - name: Create Migrations Backup Directories
