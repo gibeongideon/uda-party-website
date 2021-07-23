@@ -41,7 +41,7 @@ jobs:
       run: |
 
         # cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-        python manage.py collectstatic
+        # python manage.py collectstatic
         # python manage.py makemigrations users
         python manage.py makemigrations candidate
         python manage.py makemigrations home
