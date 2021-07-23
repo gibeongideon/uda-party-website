@@ -40,7 +40,7 @@ jobs:
     - name: Collectstatic, makemigrations & migrate
       run: |
 
-        # cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
+        # cd ~/actions-runner/deploy/uda-party-website/-party-website        
         # python manage.py collectstatic
         # python manage.py makemigrations users
         python manage.py makemigrations candidate
@@ -70,162 +70,165 @@ jobs:
       with:
         python-version: 3.8
 
-    # - name: Install Dependencies
-    #   run: |
-    #     pwd
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party
-        
-    #     python -m pip install --upgrade pip    
-    #     python -m pip install tree
-    #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-    # - name: Create ENV VAR
-    #   run: |  
-    #     touch ~/uda-party/.env
-    #     cp ~/uda-party/.env  ~/uda-party/actions-runner/deploy/uda-party/uda-party
-
-
-    # - name: Create Migrations Backup Directories
-    #   run: |  
-    #     mkdir -p ~/uda-party/uda-party/migrations/candidate/migrations
-    #     mkdir -p ~/uda-party/uda-party/migrations/home/migrations
-    #     mkdir -p ~/uda-party/uda-party/migrations/search/migrations
-    #     # mkdir -p ~/uda-party/uda-party/migrations/users/migrations
-    #     # mkdir -p ~/uda-party/uda-party/migrations/mpesa_api/core/migrations
-    #     mkdir -p ~/uda-party/uda-party/migrations/paypal/standard/ipn/migrations
-    #     mkdir -p ~/uda-party/uda-party/migrations/paypal/pro/migrations
-
-    #     cd ~/uda-party/uda-party/migrations
-    #     tree
-
-
-    # - name: RSYNC Backup Migrations To Workin Directory
-    #   run: |
-    #     rsync -a --delete ~/uda-party/uda-party/migrations/candidate/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/candidate
-    #     rsync -a --delete ~/uda-party/uda-party/migrations/home/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/home
-    #     rsync -a --delete ~/uda-party/uda-party/migrations/search/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/search
-    #     # rsync -a --delete ~/uda-party/uda-party/migrations/users/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/users
-    #     # rsync -a --delete ~/uda-party/uda-party/migrations/mpesa_api/core/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/mpesa_api/core
-    #     rsync -a --delete ~/uda-party/uda-party/migrations/paypal/standard/ipn/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/paypal/standard/ipn
-    #     rsync -a --delete ~/uda-party/uda-party/migrations/paypal/pro/migrations ~/uda-party/actions-runner/deploy/uda-party/uda-party/paypal/pro
+    - name: Install Dependencies
+      run: |
+        pwd
+        cd ~/actions-runner/deploy/uda-party-website/-party-website
+        sudo apt update
+        sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
 
         
-    # - name: COLLECTSTATIC
+        python -m pip install --upgrade pip    
+        python -m pip install tree
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Create ENV VAR
+      run: |  
+        touch ~/uda-party/.env
+        cp ~/uda-party/.env  ~/actions-runner/deploy/uda-party-website/uda-party-website
+
+
+    - name: Create Migrations Backup Directories
+      run: |  
+        mkdir -p ~/uda-party-website/uda-party-website/migrations/candidate/migrations
+        mkdir -p ~/uda-party-website/uda-party-website/migrations/home/migrations
+        mkdir -p ~/uda-party-website/uda-party-website/migrations/search/migrations
+        # mkdir -p ~/uda-party-website/uda-party-website/migrations/users/migrations
+        # mkdir -p ~/uda-party-website/uda-party-website/migrations/mpesa_api/core/migrations
+        mkdir -p ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn/migrations
+        mkdir -p ~/uda-party-website/uda-party-website/migrations/paypal/pro/migrations
+
+        cd ~/uda-party-website/uda-party-website/migrations
+        tree
+
+
+    - name: RSYNC Backup Migrations To Workin Directory
+      run: |
+        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/candidate/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/candidate
+        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/home/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/home
+        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/search/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/search
+        # rsync -a --delete ~/uda-party-website/uda-party-website/migrations/users/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/users
+        # rsync -a --delete ~/uda-party-website/uda-party-website/migrations/mpesa_api/core/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/mpesa_api/core
+        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/standard/ipn
+        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/paypal/pro/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/pro
+
+        
+    - name: COLLECTSTATIC
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website                
+        python manage.py collectstatic
+
+    - name: MAKEMIGRATIONS
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website  
+
+        # python manage.py makemigrations users
+        python manage.py makemigrations candidate
+        python manage.py makemigrations home
+        python manage.py makemigrations search
+        # python manage.py makemigrations core
+        python manage.py makemigrations ipn
+        python manage.py makemigrations pro
+
+    ## candidate
+    - name: MIGRATE-candidate
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website        
+        python manage.py migrate candidate
+
+    - name: Rsync Workin Directory to Backup Migrations-candidate
+      run: |
+        rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/candidate/migrations ~/uda-party-website/uda-party-website/migrations/candidate
+        cd ~/uda-party-website/uda-party-website/migrations/candidate
+        tree
+
+    ## home
+    - name: MIGRATE-home
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website        
+        python manage.py migrate home
+
+    - name: Rsync Workin Directory to Backup Migrations-home
+      run: |
+        rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/home/migrations ~/uda-party-website/uda-party-website/migrations/home
+        cd ~/uda-party-website/uda-party-website/migrations/home
+        tree
+    ## search    
+    - name: MIGRATE-search
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website        
+        python manage.py migrate search
+
+    - name: Rsync Workin Directory to Backup Migrations-search
+      run: |
+        rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/search/migrations ~/uda-party-website/uda-party-website/migrations/search
+        cd ~/uda-party-website/uda-party-website/migrations/search
+        tree
+
+    ## users
+    # - name: MIGRATE-users
     #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party                
-    #     python manage.py collectstatic
+    #     cd ~/actions-runner/deploy/uda-party-website/-party-website        
+    #     python manage.py migrate users
 
-    # - name: MAKEMIGRATIONS
+    # - name: Rsync Workin Directory to Backup Migrations-users
     #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party  
+    #     rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/users/migrations ~/uda-party-website/uda-party-website/migrations/users
+    #     cd ~/uda-party-website/uda-party-website/migrations/users
+    #     tree    
 
-    #     # python manage.py makemigrations users
-    #     python manage.py makemigrations candidate
-    #     python manage.py makemigrations home
-    #     python manage.py makemigrations search
-    #     python manage.py makemigrations core
-    #     # python manage.py makemigrations ipn
-    #     python manage.py makemigrations pro
-
-    # ## candidate
-    # - name: MIGRATE-candidate
+    ## core
+    # - name: MIGRATE-core
     #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    #     python manage.py migrate candidate
+    #     cd ~/actions-runner/deploy/uda-party-website/-party-website        
+    #     python manage.py migrate core
 
-    # - name: Rsync Workin Directory to Backup Migrations-candidate
+    # - name: Rsync Workin Directory to Backup Migrations-core
     #   run: |
-    #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/candidate/migrations ~/uda-party/uda-party/migrations/candidate
-    #     cd ~/uda-party/uda-party/migrations/candidate
-    #     tree
+    #     rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/mpesa_api/core/migrations ~/uda-party-website/uda-party-website/migrations/mpesa_api/core
+    #     cd ~/uda-party-website/uda-party-website/migrations/mpesa_api/core
+    #     tree   
 
-    # ## home
-    # - name: MIGRATE-home
+    ## ipn
+    - name: MIGRATE-ipn
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website        
+        # python manage.py migrate ipn
+
+    - name: Rsync Workin Directory to Backup Migrations-ipn
+      run: |
+        rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/standard/ipn/migrations ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn 
+        cd ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn
+        tree 
+
+    ## pro
+    - name: MIGRATE-pro
+      run: |
+        cd ~/actions-runner/deploy/uda-party-website/-party-website        
+        python manage.py migrate pro
+
+    - name: Rsync Workin Directory to Backup Migrations-pro
+      run: |
+        rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/pro/migrations ~/uda-party-website/uda-party-website/migrations/paypal/pro 
+        cd ~/uda-party-website/uda-party-website/migrations/paypal/pro
+        tree 
+
+    - name: Backup Migrations_Updated
+      run: |
+        cd ~/uda-party-website/uda-party-website/migrations
+        tree
+
+
+    # - name: Test Redis
     #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    #     python manage.py migrate home
+    #     redis-cli ping
 
-    # - name: Rsync Workin Directory to Backup Migrations-home
+
+    # - name: Run Tests
     #   run: |
-    #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/home/migrations ~/uda-party/uda-party/migrations/home
-    #     cd ~/uda-party/uda-party/migrations/home
-    #     tree
-    # ## search    
-    # - name: MIGRATE-search
+    #     python manage.py test
+
+
+    # - name: Reload
     #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    #     python manage.py migrate search
-
-    # - name: Rsync Workin Directory to Backup Migrations-search
-    #   run: |
-    #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/search/migrations ~/uda-party/uda-party/migrations/search
-    #     cd ~/uda-party/uda-party/migrations/search
-    #     tree
-
-    # ## users
-    # # - name: MIGRATE-users
-    # #   run: |
-    # #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    # #     python manage.py migrate users
-
-    # # - name: Rsync Workin Directory to Backup Migrations-users
-    # #   run: |
-    # #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/users/migrations ~/uda-party/uda-party/migrations/users
-    # #     cd ~/uda-party/uda-party/migrations/users
-    # #     tree    
-
-    # ## core
-    # # - name: MIGRATE-core
-    # #   run: |
-    # #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    # #     python manage.py migrate core
-
-    # # - name: Rsync Workin Directory to Backup Migrations-core
-    # #   run: |
-    # #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/mpesa_api/core/migrations ~/uda-party/uda-party/migrations/mpesa_api/core
-    # #     cd ~/uda-party/uda-party/migrations/mpesa_api/core
-    # #     tree   
-
-    # ## ipn
-    # - name: MIGRATE-ipn
-    #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    #     # python manage.py migrate ipn
-
-    # - name: Rsync Workin Directory to Backup Migrations-ipn
-    #   run: |
-    #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/paypal/standard/ipn/migrations ~/uda-party/uda-party/migrations/paypal/standard/ipn 
-    #     cd ~/uda-party/uda-party/migrations/paypal/standard/ipn
-    #     tree 
-
-    # ## pro
-    # - name: MIGRATE-pro
-    #   run: |
-    #     cd ~/uda-party/actions-runner/deploy/uda-party/uda-party        
-    #     python manage.py migrate pro
-
-    # - name: Rsync Workin Directory to Backup Migrations-pro
-    #   run: |
-    #     rsync -a --delete ~/uda-party/actions-runner/deploy/uda-party/uda-party/paypal/pro/migrations ~/uda-party/uda-party/migrations/paypal/pro 
-    #     cd ~/uda-party/uda-party/migrations/paypal/pro
-    #     tree 
-
-    # - name: Backup Migrations_Updated
-    #   run: |
-    #     cd ~/uda-party/uda-party/migrations
-    #     tree
-
-
-    # # - name: Test Redis
-    # #   run: |
-    # #     redis-cli ping
-
-
-    # # - name: Run Tests
-    # #   run: |
-    # #     python manage.py test
-
-
-    # # - name: Reload
-    # #   run: |
-    # #     sudo shutdown -r now
+    #     sudo shutdown -r now
