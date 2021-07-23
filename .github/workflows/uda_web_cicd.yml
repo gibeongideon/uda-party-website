@@ -73,7 +73,7 @@ jobs:
     - name: Install Dependencies
       run: |
         pwd
-        cd ~/actions-runner/deploy/uda-party-website/-party-website
+        cd ~/actions-runner/deploy/uda-party-website/uda-party-website
         sudo apt update
         sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
 
