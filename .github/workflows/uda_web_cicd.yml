@@ -40,7 +40,7 @@ jobs:
     - name: Collectstatic, makemigrations & migrate
       run: |
 
-         
+        # cd ~/actions-runner/deploy/uda-party-website/uda-party-website        
         # python manage.py collectstatic
         # python manage.py makemigrations users
         python manage.py makemigrations candidate
