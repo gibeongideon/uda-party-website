@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags%}
+
+{% block body_class %}template-advert{% endblock %}
+
+{% block extra_css %} {% endblock extra_css %}
+
+{% block content %}
+<p>
+    <a href="{{advert.url}}">
+	   {{ advert.text}}
+	</a>
+</p>	   
+
+{% endblock content %}

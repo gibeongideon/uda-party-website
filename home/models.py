@@ -6,19 +6,17 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel ,InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel 
 from wagtail.search import index
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
+
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
 
 class HomePage(Page):
-    faicon = models.ImageField(upload_to='images/faricon/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+    
     image0 = models.ImageField(upload_to='images/intro/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
     signature_01 = models.ImageField(upload_to='images/signature/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-    logo = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-    logo1 = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-
-    logofooter = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-
     intro_quote1 = models.CharField(default="Our quest to empower & change ",max_length=200, blank=True,null=True)
     intro_quote2 = models.CharField(default="every hustler's",max_length=200, blank=True,null=True)
     intro_quote3 = models.CharField(default=" life.",max_length=200, blank=True,null=True)
@@ -27,28 +25,38 @@ class HomePage(Page):
 
     body = RichTextField(blank=True)
     latest_new_title = models.CharField(max_length=200, default='Latest News', blank=True,null=True)
-
-    call_no =  models.CharField(max_length=200, default='020 2020 405', blank=True,null=True)
-
-    info_mail = models.EmailField(default='info@uda-party.com')
-    office_location = models.CharField(max_length=200,default="Hustler Center | Nairobi Kenya", blank=True,null=True)
-
-    designer = models.CharField(max_length=200, default='+254712748566', blank=True,null=True)
-    designer_link = models.URLField(default="https://www.linkedin.com/in/kipngeno-gibeon-27b9765a/")
     
     join_tittlea = models.CharField(max_length=250 ,blank=True,null=True)
     join_tittleb = models.CharField(max_length=250 ,blank=True,null=True)
     join_tittlec = models.CharField(max_length=250 ,blank=True,null=True)
 
+    advert = models.ForeignKey(
+        'home.Advert',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    header = models.ForeignKey(
+        'home.Header',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    footer = models.ForeignKey(
+        'home.Footer',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')        
+
 
     content_panels=Page.content_panels + [
+        SnippetChooserPanel('advert'),
+        SnippetChooserPanel('header'),
+        SnippetChooserPanel('footer'),
         FieldPanel('body',classname = "full"),
-        FieldPanel('faicon'),
         FieldPanel('image0'),
         FieldPanel('signature_01'),
-        FieldPanel('logo'),
-        FieldPanel('logo1'),
-        FieldPanel('logofooter'),
+
 
         FieldPanel('intro_quote1'),
         FieldPanel('intro_quote2'),
@@ -56,14 +64,7 @@ class HomePage(Page):
 
         FieldPanel('quoter_name'),
         FieldPanel('quoter_title'),
-        FieldPanel('designer'),
         FieldPanel('latest_new_title'),
-
-
-        FieldPanel('office_location'),
-        FieldPanel('info_mail'),
-        FieldPanel('call_no'),
-        FieldPanel('designer_link'),
 
         InlinePanel('latestnewz',label="Latest News"),
         InlinePanel('latestinfo',label="Latest Info"),
@@ -167,16 +168,34 @@ class Donate(Page):
 
     body = RichTextField(blank=True)
 
-    logo = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-    logo1 = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-
-    logofooter = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
-
 
     mlink =  models.URLField(blank=True)
+    plink =  models.URLField(blank=True)
+
+    advert = models.ForeignKey(
+        'home.Advert',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    header = models.ForeignKey(
+        'home.Header',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    footer = models.ForeignKey(
+        'home.Footer',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')        
 
 
     content_panels=Page.content_panels + [
+        SnippetChooserPanel('advert'),
+        SnippetChooserPanel('header'),
+        SnippetChooserPanel('footer'),
+
         FieldPanel('body',classname = "full"),
         FieldPanel('image0'),
 
@@ -188,44 +207,78 @@ class Donate(Page):
         FieldPanel('title1a'),
         FieldPanel('title1b'),
 
-
-
-        FieldPanel('logo'),
-        FieldPanel('logo1'),
-        FieldPanel('logofooter'),
-
         FieldPanel('mlink'),
+        FieldPanel('plink'),
 
 
         # InlinePanel('latestnewz',label="Latest News"),
 
     ]
 
-class TimeStamp(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
-    # is_active = models.BooleanField(default=True)
-
-    class Meta:
-        abstract = True
 
 
-class Checkout(TimeStamp):
-    # user = models.ForeignKey(
-    #     settings.AUTH_USER_MODEL,
-    #     on_delete=models.CASCADE,
-    #     related_name="checkouts",
-    #     blank=True,
-    #     null=True,
-    # )
-    # email = models.EmailField(blank=True, null=True)
-    amount = models.DecimalField(max_digits=20, decimal_places=2)
-    paid = models.BooleanField(default=False, blank=True, null=True)
-    # success = models.BooleanField(default=False, blank=True, null=True)
+@register_snippet
+class Advert(models.Model):
+    url = models.URLField(null=True, blank=True)
+    text = models.CharField(max_length=255)
 
-    def save(self, *args, **kwargs):
-        if abs(self.amount) == 0:
-            self.amount = 1
-        else:
-            self.amount = abs(self.amount)
-        super().save(*args, **kwargs)
+    panels = [
+        FieldPanel('url'),
+        FieldPanel('text'),
+    ]
+
+    def __str__(self):
+        return self.text
+
+
+@register_snippet
+class Header(models.Model):
+    faicon = models.ImageField(upload_to='images/faricon/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+    url = models.URLField(null=True, blank=True)
+    text = models.CharField(max_length=255,blank=True,null=True)
+    logo = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+    logo1 = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+
+    
+
+    panels = [
+        FieldPanel('url'),
+        FieldPanel('text'),
+        FieldPanel('logo'),
+        FieldPanel('logo1'),
+        FieldPanel('faicon'),
+
+        
+    ]
+
+    def __str__(self):
+        return self.text
+
+
+@register_snippet
+class Footer(models.Model):
+    url = models.URLField(null=True, blank=True)
+    text = models.CharField(max_length=255, blank=True,null=True)
+    logofooter = models.ImageField(upload_to='images/logo/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+
+    call_no =  models.CharField(max_length=200, default='020 2020 405', blank=True,null=True)
+    info_mail = models.EmailField(default='info@uda-party.com')
+    office_location = models.CharField(max_length=200,default="Hustler Center | Nairobi Kenya", blank=True,null=True)
+    designer = models.CharField(max_length=200, default='+254712748566', blank=True,null=True)
+    designer_link = models.URLField(default="https://www.linkedin.com/in/kipngeno-gibeon-27b9765a/")
+
+    panels = [
+        FieldPanel('url'),
+        FieldPanel('text'),
+        
+        FieldPanel('logofooter'),
+
+        FieldPanel('office_location'),
+        FieldPanel('info_mail'),
+        FieldPanel('call_no'),
+        FieldPanel('designer'),
+        FieldPanel('designer_link'),
+    ]
+
+    def __str__(self):
+        return self.text
