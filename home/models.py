@@ -3,11 +3,18 @@ from modelcluster.fields import ParentalKey
 
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel ,InlinePanel
+from wagtail.admin.edit_handlers import (
+    FieldPanel, FieldRowPanel,InlinePanel, MultiFieldPanel)
+    
 from wagtail.images.edit_handlers import ImageChooserPanel 
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
+
+
 
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -162,12 +169,20 @@ class Donate(Page):
     header2 = models.CharField(default="Donate for",max_length=200, blank=True,null=True)
     header3 = models.CharField(default="Victory",max_length=200, blank=True,null=True)
 
+
+    header4 = models.CharField(default="Democracy is Powered by",max_length=200, blank=True,null=True)
+    header5 = models.CharField(default="Doners",max_length=200, blank=True,null=True)
+    header6 = models.CharField(default="Like You",max_length=200, blank=True,null=True)
+    body = RichTextField(blank=True)
+    body2 = RichTextField(blank=True)
+
+
     title0 = models.CharField(default="Thank you for supporting our work!",max_length=200, blank=True,null=True)
     title1a = models.CharField(default="",max_length=200, blank=True,null=True)
     title1b = models.CharField(default="",max_length=200, blank=True,null=True)
+    title1c = models.CharField(default="",max_length=200, blank=True,null=True)
 
-    body = RichTextField(blank=True)
-
+    
 
     mlink =  models.URLField(blank=True)
     plink =  models.URLField(blank=True)
@@ -197,15 +212,22 @@ class Donate(Page):
         SnippetChooserPanel('footer'),
 
         FieldPanel('body',classname = "full"),
+        FieldPanel('body2',classname = "full"),
         FieldPanel('image0'),
 
         FieldPanel('header1'),
         FieldPanel('header2'),
         FieldPanel('header3'),
 
+
+        FieldPanel('header4'),
+        FieldPanel('header5'),
+        FieldPanel('header6'),
+
         FieldPanel('title0'),
         FieldPanel('title1a'),
         FieldPanel('title1b'),
+        FieldPanel('title1c'),
 
         FieldPanel('mlink'),
         FieldPanel('plink'),
@@ -267,6 +289,11 @@ class Footer(models.Model):
     designer = models.CharField(max_length=200, default='+254712748566', blank=True,null=True)
     designer_link = models.URLField(default="https://www.linkedin.com/in/kipngeno-gibeon-27b9765a/")
 
+    instagram_link = models.URLField(null=True, blank=True)
+    twitter_link = models.URLField(null=True, blank=True)
+    youtube_link = models.URLField(null=True, blank=True)
+    facebook_link = models.URLField(null=True, blank=True)
+
     panels = [
         FieldPanel('url'),
         FieldPanel('text'),
@@ -278,7 +305,97 @@ class Footer(models.Model):
         FieldPanel('call_no'),
         FieldPanel('designer'),
         FieldPanel('designer_link'),
+
+        FieldPanel('instagram_link'),
+        FieldPanel('twitter_link'),
+        FieldPanel('youtube_link'),
+        FieldPanel('facebook_link'),
     ]
 
     def __str__(self):
         return self.text
+
+
+
+
+
+
+
+class FormField(AbstractFormField):
+    page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
+
+
+class FormPage(AbstractEmailForm):
+    intro = RichTextField(blank=True)
+    thank_you_text = RichTextField(blank=True)
+
+
+
+    header = models.ForeignKey(
+        'home.Header',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    footer = models.ForeignKey(
+        'home.Footer',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')        
+
+
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FormSubmissionsPanel(),
+        SnippetChooserPanel('header'),
+        SnippetChooserPanel('footer'),
+        FieldPanel('intro', classname="full"),
+        InlinePanel('form_fields', label="Form fields"),
+        FieldPanel('thank_you_text', classname="full"),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('from_address', classname="col6"),
+                FieldPanel('to_address', classname="col6"),
+            ]),
+            FieldPanel('subject'),
+        ], "Email"),
+    ]
+
+
+class ProductPage(Page):    
+    image0 = models.ImageField(upload_to='images/products/%Y/%m/%d/',max_length=2000,blank=True ,null =True)
+    name = models.CharField(max_length=200, blank=True,null=True)
+    desc = RichTextField(blank=True)
+
+    advert = models.ForeignKey(
+        'home.Advert',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    header = models.ForeignKey(
+        'home.Header',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')
+
+    footer = models.ForeignKey(
+        'home.Footer',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,related_name='+')        
+
+
+    content_panels=Page.content_panels + [
+        SnippetChooserPanel('advert'),
+        SnippetChooserPanel('header'),
+        SnippetChooserPanel('footer'),
+
+        FieldPanel('image0'),   
+        FieldPanel('name'),
+        FieldPanel('desc',classname = "full"),             
+
+    ]
+
+
+

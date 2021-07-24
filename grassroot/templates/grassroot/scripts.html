@@ -1,0 +1,291 @@
+
+       {% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+       
+        <script type="text/javascript" src="{% static 'js/uda_party.js' %}"></script>
+
+
+        <script type='text/javascript' src="{% static 'wp-includes/js/jquery/jquery.min9d52.js?ver=3.5.1'  %}"id='jquery-core-js'></script>
+
+<script type='text/javascript' src="{% static 'wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2' %}" id='jquery-migrate-js'></script>
+
+<script type='text/javascript' src="{% static 'wp-content/plugins/bold-page-builder/slick/slick.min677a.js?ver=3.0.9' %}" id='bt_bb_slick-js'></script>
+
+<script type='text/javascript' src="{% static 'wp-content/plugins/bold-page-builder/content_elements_misc/js/jquery.magnific-popup.min677a.js?ver=3.0.9' %}" id='bt_bb_magnific-js'></script>
+
+<script type='text/javascript' src="{% static 'wp-content/plugins/bold-page-builder/content_elements_misc/js/content_elements677a.js?ver=3.0.9' %}" id='bt_bb-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/bold-page-builder/script_fe677a.js?ver=3.0.9' %}" id='bt_bb_fe-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/bt_cost_calculator/jquery.dde23c.js?ver=5.7' id='bt_cc_dd-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/bt_cost_calculator/cc.maine23c.js?ver=5.7' %}" id='bt_cc_main-js'></script>
+<script type='text/javascript' id='bt_cc_main-js-after'>
+window.bt_cc_translate = [];window.bt_cc_translate['prev'] = 'Prev';window.bt_cc_translate['next'] = 'Next';window.bt_cc_translate['su'] = 'Su';window.bt_cc_translate['mo'] = 'Mo';window.bt_cc_translate['tu'] = 'Tu';window.bt_cc_translate['we'] = 'We';window.bt_cc_translate['th'] = 'Th';window.bt_cc_translate['fr'] = 'Fr';window.bt_cc_translate['sa'] = 'Sa';window.bt_cc_translate['january'] = 'January';window.bt_cc_translate['february'] = 'February';window.bt_cc_translate['march'] = 'March';window.bt_cc_translate['april'] = 'April';window.bt_cc_translate['may'] = 'May';window.bt_cc_translate['june'] = 'June';window.bt_cc_translate['july'] = 'July';window.bt_cc_translate['august'] = 'August';window.bt_cc_translate['september'] = 'September';window.bt_cc_translate['october'] = 'October';window.bt_cc_translate['november'] = 'November';window.bt_cc_translate['december'] = 'December';
+</script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker0455.js?ver=1.11.6' %}" id='gtm4wp-form-move-tracker-js'></script>
+<script type="text/javascript">
+		var recaptcha_widgets={};
+		function wp_recaptchaLoadCallback(){
+			try {
+				grecaptcha;
+			} catch(err){
+				return;
+			}
+			var e = document.querySelectorAll ? document.querySelectorAll('.g-recaptcha:not(.wpcf7-form-control)') : document.getElementsByClassName('g-recaptcha'),
+				form_submits;
+
+			for (var i=0;i<e.length;i++) {
+				(function(el){
+					var wid;
+					// check if captcha element is unrendered
+					if ( ! el.childNodes.length) {
+						wid = grecaptcha.render(el,{
+							'sitekey':'6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41',
+							'theme':el.getAttribute('data-theme') || 'light'
+						});
+						el.setAttribute('data-widget-id',wid);
+					} else {
+						wid = el.getAttribute('data-widget-id');
+						grecaptcha.reset(wid);
+					}
+				})(e[i]);
+			}
+		}
+
+		// if jquery present re-render jquery/ajax loaded captcha elements
+		if ( typeof jQuery !== 'undefined' )
+			jQuery(document).ajaxComplete( function(evt,xhr,set){
+				if( xhr.responseText && xhr.responseText.indexOf('6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41') !== -1)
+					wp_recaptchaLoadCallback();
+			} );
+
+		</script><script src="../../www.google.com/recaptcha/api6c4a.js?onload=wp_recaptchaLoadCallback&amp;render=explicit" async defer></script>
+<!-- END recaptcha -->
+	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type='text/javascript' src="{% static 'wp-includes/js/dist/vendor/wp-polyfill.min89b1.js?ver=7.4.4' %}" id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wp-polyfill-js-after'>
+( 'fetch' in window ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-fetch.min6e0e.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-node-contains.min2e00.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min2e00.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-url.min5aed.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-formdata.mine9bd.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-element-closest.min4c56.js?ver=2.0.2"></scr' + 'ipt>' );( 'objectFit' in document.documentElement.style ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-object-fit.min531b.js?ver=2.3.4"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript' src="{% static 'wp-includes/js/dist/hooks.minf521.js?ver=50e23bed88bcb9e6e14023e9961698c1' id='wp-hooks-js'></script>
+<script type='text/javascript' src="{% static 'wp-includes/js/dist/i18n.min87d6.js?ver=db9a9a37da262883343e941c3731bc67' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type='text/javascript' src="{% static 'wp-includes/js/dist/vendor/lodash.minf492.js?ver=4.17.19'  %}" id='lodash-js'></script>
+<script type='text/javascript' id='lodash-js-after'>
+window.lodash = _.noConflict();
+</script>
+<script type='text/javascript' src="{% static 'wp-includes/js/dist/url.minacd8.js?ver=0ac7e0472c46121366e7ce07244be1ac' %}" id='wp-url-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-translations'>
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type='text/javascript' src="{% static 'wp-includes/js/dist/api-fetch.minf3b9.js?ver=a783d1f442d2abefc7d6dbd156a44561' %}" id='wp-api-fetch-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-after'>
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "wp-json/index.html" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "6184f5ac0f" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "wp-admin/admin-ajaxf809.html?action=rest-nonce";
+</script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/contact-form-7/includes/js/index91d5.js?ver=5.4' %}" id='contact-form-7-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70' %}" id='jquery-blockui-js'></script>
+<script type='text/javascript' id='wc-add-to-cart-js-extra'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/candidate\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/candidate\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"http:\/\/vox-populi.bold-themes.com\/candidate\/shop\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min0e7d.js?ver=5.1.0' %}" id='wc-add-to-cart-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min6b25.js?ver=2.1.4' %}" id='js-cookie-js'></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/candidate\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/candidate\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min0e7d.js?ver=5.1.0' %}" id='woocommerce-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/candidate\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/candidate\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_01cd11645ada14d957f1fb820cb6a050","fragment_name":"wc_fragments_01cd11645ada14d957f1fb820cb6a050","request_timeout":"5000"};
+* ]]> */
+</script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min0e7d.js?ver=5.1.0' %}" id='wc-cart-fragments-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/themes/vox-populi/framework/js/fancySelecte23c.js?ver=5.7' %}" id='fancySelect-js'></script>
+<script type='text/javascript' id='vox_populi-header-js-before'>
+window.BoldThemesURI = "wp-content/themes/vox-populi"; window.BoldThemesAJAXURL = "wp-admin/admin-ajax.html";window.boldthemes_text = [];window.boldthemes_text.previous = 'previous';window.boldthemes_text.next = 'next';
+</script>
+<script type='text/javascript' src="{% static 'wp-content/themes/vox-populi/framework/js/header.misce23c.js?ver=5.7' %}" id='vox_populi-header-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/themes/vox-populi/framework/js/misce23c.js?ver=5.7' %}" id='vox_populi-misc-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/themes/vox-populi/framework/js/framework_misce23c.js?ver=5.7' %}" id='boldthemes-framework-misc-js'></script>
+<script type='text/javascript' id='boldthemes-framework-misc-js-after'>
+			var boldthemes_dropdown = document.querySelector( ".widget_categories #cat" );
+			function boldthemes_onCatChange() {
+				if ( boldthemes_dropdown.options[boldthemes_dropdown.selectedIndex].value > 0 ) {
+					location.href = "http://vox-populi.bold-themes.com/candidate/?cat="+boldthemes_dropdown.options[boldthemes_dropdown.selectedIndex].value;
+				}
+			}
+			if ( boldthemes_dropdown !== null ) {
+				boldthemes_dropdown.onchange = boldthemes_onCatChange;
+			}
+		
+</script>
+<script type='text/javascript' src='../../www.google.com/recaptcha/apic1f0.html?render=6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41&amp;ver=3.0' id='google-recaptcha-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/contact-form-7/modules/recaptcha/index91d5.js?ver=5.4' %}" id='wpcf7-recaptcha-js'></script>
+<script type='text/javascript' src="{% static 'wp-includes/js/wp-embed.mine23c.js?ver=5.7'  %}"id='wp-embed-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/bold-page-builder/content_elements/bt_bb_section/bt_bb_elements677a.js?ver=3.0.9' %}" id='bt_bb_elements-js'></script>
+<script type='text/javascript' src="{% static 'wp-includes/js/imagesloaded.mineda1.js?ver=4.1.4'  %}"id='imagesloaded-js'></script>
+<script type='text/javascript' src="{% static 'wp-includes/js/masonry.min3a05.js?ver=4.2.2'  %}"id='masonry-js'></script>
+<script type='text/javascript' src="{% static 'wp-content/plugins/bold-page-builder/content_elements/bt_bb_masonry_image_grid/bt_bb_masonry_image_grid677a.js?ver=3.0.9' %}" id='bt_bb_image_grid-js'></script>
+<script type='text/javascript' src="{% static 'wp-includes/js/jquery/jquery.masonry.minef70.js?ver=3.1.2b' %}" id='jquery-masonry-js'></script>
+
+
+{% comment %} 
+
+<script type="text/javascript">
+		var recaptcha_widgets={};
+		function wp_recaptchaLoadCallback(){
+			try {
+				grecaptcha;
+			} catch(err){
+				return;
+			}
+			var e = document.querySelectorAll ? document.querySelectorAll('.g-recaptcha:not(.wpcf7-form-control)') : document.getElementsByClassName('g-recaptcha'),
+				form_submits;
+
+			for (var i=0;i<e.length;i++) {
+				(function(el){
+					var wid;
+					// check if captcha element is unrendered
+					if ( ! el.childNodes.length) {
+						wid = grecaptcha.render(el,{
+							'sitekey':'6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41',
+							'theme':el.getAttribute('data-theme') || 'light'
+						});
+						el.setAttribute('data-widget-id',wid);
+					} else {
+						wid = el.getAttribute('data-widget-id');
+						grecaptcha.reset(wid);
+					}
+				})(e[i]);
+			}
+		}
+
+		// if jquery present re-render jquery/ajax loaded captcha elements
+		if ( typeof jQuery !== 'undefined' )
+			jQuery(document).ajaxComplete( function(evt,xhr,set){
+				if( xhr.responseText && xhr.responseText.indexOf('6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41') !== -1)
+					wp_recaptchaLoadCallback();
+			} );
+
+		</script><script src="../../www.google.com/recaptcha/api6c4a.js?onload=wp_recaptchaLoadCallback&amp;render=explicit" async defer></script>
+<!-- END recaptcha -->
+	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type='text/javascript' src='wp-includes/js/dist/vendor/wp-polyfill.min89b1.js?ver=7.4.4' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wp-polyfill-js-after'>
+( 'fetch' in window ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-fetch.min6e0e.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-node-contains.min2e00.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min2e00.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-url.min5aed.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-formdata.mine9bd.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-element-closest.min4c56.js?ver=2.0.2"></scr' + 'ipt>' );( 'objectFit' in document.documentElement.style ) || document.write( '<script src="wp-includes/js/dist/vendor/wp-polyfill-object-fit.min531b.js?ver=2.3.4"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript' src='wp-includes/js/dist/hooks.minf521.js?ver=50e23bed88bcb9e6e14023e9961698c1' id='wp-hooks-js'></script>
+<script type='text/javascript' src='wp-includes/js/dist/i18n.min87d6.js?ver=db9a9a37da262883343e941c3731bc67' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type='text/javascript' src='wp-includes/js/dist/vendor/lodash.minf492.js?ver=4.17.19' id='lodash-js'></script>
+<script type='text/javascript' id='lodash-js-after'>
+window.lodash = _.noConflict();
+</script>
+<script type='text/javascript' src='wp-includes/js/dist/url.minacd8.js?ver=0ac7e0472c46121366e7ce07244be1ac' id='wp-url-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-translations'>
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type='text/javascript' src='wp-includes/js/dist/api-fetch.minf3b9.js?ver=a783d1f442d2abefc7d6dbd156a44561' id='wp-api-fetch-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-after'>
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "wp-json/index.html" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "6184f5ac0f" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "wp-admin/admin-ajaxf809.html?action=rest-nonce";
+</script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/contact-form-7/includes/js/index91d5.js?ver=5.4' id='contact-form-7-js'></script>
+<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70' id='jquery-blockui-js'></script>
+<script type='text/javascript' id='wc-add-to-cart-js-extra'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/grassroot\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/grassroot\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"http:\/\/vox-populi.bold-themes.com\/grassroot\/shop\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min0e7d.js?ver=5.1.0' id='wc-add-to-cart-js'></script>
+<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min6b25.js?ver=2.1.4' id='js-cookie-js'></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/grassroot\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/grassroot\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min0e7d.js?ver=5.1.0' id='woocommerce-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/grassroot\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/grassroot\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_2210840aab5be4bfbaa9e5866afc4031","fragment_name":"wc_fragments_2210840aab5be4bfbaa9e5866afc4031","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min0e7d.js?ver=5.1.0' id='wc-cart-fragments-js'></script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/framework/js/fancySelecte23c.js?ver=5.7' id='fancySelect-js'></script>
+<script type='text/javascript' id='vox_populi-header-js-before'>
+window.BoldThemesURI = "../wp-content/themes/vox-populi/index.html"; window.BoldThemesAJAXURL = "wp-admin/admin-ajax.html";window.boldthemes_text = [];window.boldthemes_text.previous = 'previous';window.boldthemes_text.next = 'next';
+</script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/framework/js/header.misce23c.js?ver=5.7' id='vox_populi-header-js'></script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/framework/js/misce23c.js?ver=5.7' id='vox_populi-misc-js'></script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/framework/js/framework_misce23c.js?ver=5.7' id='boldthemes-framework-misc-js'></script>
+<script type='text/javascript' id='boldthemes-framework-misc-js-after'>
+			var boldthemes_dropdown = document.querySelector( ".widget_categories #cat" );
+			function boldthemes_onCatChange() {
+				if ( boldthemes_dropdown.options[boldthemes_dropdown.selectedIndex].value > 0 ) {
+					location.href = "http://vox-populi.bold-themes.com/grassroot/?cat="+boldthemes_dropdown.options[boldthemes_dropdown.selectedIndex].value;
+				}
+			}
+			if ( boldthemes_dropdown !== null ) {
+				boldthemes_dropdown.onchange = boldthemes_onCatChange;
+			}
+		
+</script>
+<script type='text/javascript' src='../../www.google.com/recaptcha/apic1f0.html?render=6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41&amp;ver=3.0' id='google-recaptcha-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LfmEKAaAAAAAJGwYMNSdux-yATrkwZcw6GT6N41","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/contact-form-7/modules/recaptcha/index91d5.js?ver=5.4' id='wpcf7-recaptcha-js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.mine23c.js?ver=5.7' id='wp-embed-js'></script>
+<script type='text/javascript' src='wp-content/plugins/bold-page-builder/content_elements/bt_bb_section/bt_bb_elements677a.js?ver=3.0.9' id='bt_bb_elements-js'></script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/bold-page-builder/content_elements/bt_bb_step_line/bt_bb_step_linee23c.js?ver=5.7' id='bt_bb_step_line-js'></script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/bold-page-builder/content_elements/bt_bb_progress_bar_advanced/bb_progressbar_advancede23c.js?ver=5.7' id='bt_bb_progressbar_advanced_js-js'></script>
+<script type='text/javascript' src='wp-content/themes/vox-populi/bold-page-builder/content_elements_misc/js/bt_bb_progress_bar_advancede23c.js?ver=5.7' id='bt_bb_progressbar_advanced-js'></script> {% endcomment %}
