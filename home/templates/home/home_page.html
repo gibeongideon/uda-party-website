@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-{% load wagtailcore_tags wagtailimages_tags%}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% comment %} {% load uda_tags %} {% endcomment %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -48,6 +49,13 @@
 	    </span>
     </h1>
 </header>
+{% comment %} {{ adverts }} {% endcomment %}
+
+<p>
+    <a href="{{ page.advert.url }}">
+	   {{ page.advert.text}}
+	</a>
+</p>
 
 
 <div class="bt_bb_separator bt_bb_bottom_spacing_normal bt_bb_border_style_none"></div>

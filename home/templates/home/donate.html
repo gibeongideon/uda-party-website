@@ -59,49 +59,40 @@
 						<div  class="bt_bb_column col-xl-6 bt_bb_align_right bt_bb_vertical_align_top bt_bb_animation_fade_in animate bt_bb_padding_40 bt_bb_shape_inherit"  data-width="6" data-bt-override-class="{}">
 						    <div class="bt_bb_column_content">
 						        <div class="bt_bb_column_content_inner">
-								{% comment %} <form method="post" action="{% url 'home:checkout' %}">
-								    {% csrf_token %} {% endcomment %}
-						
 
-										{% comment %} Amount to TopUp (USD) :{{ form.amount }} {% endcomment %}
-
-
-
-										<div class="bt_bb_separator bt_bb_bottom_spacing_normal bt_bb_border_style_none"></div>
-										    
-											{% comment %} <div class="bt_bb_button bt_bb_icon_position_left bt_bb_color_scheme_6 bt_bb_style_filled bt_bb_size_extralarge bt_bb_width_full bt_bb_shape_inherit bt_bb_align_left" data-bt-override-class="{}">
-											    <a type="submit" target="_self" class="bt_bb_link" title="Donate">
-												    <span class="bt_bb_button_text" type="submit">Donate</span>
-												</a>
-											</div> {% endcomment %}
-
+										<div class="bt_bb_separator bt_bb_bottom_spacing_normal bt_bb_border_style_none"></div>										   						
 
 										<div class="bt_bb_button bt_bb_icon_position_right bt_bb_color_scheme_8 bt_bb_style_outline bt_bb_size_large bt_bb_width_inline bt_bb_shape_round bt_bb_align_center" data-bt-override-class="{}">
+										    <a href={{page.mlink}} target="_self" class="bt_bb_link" title="M-Pesa Donate">
+											    <span class="bt_bb_button_text">Donate with M-Pesa</span>
+												    <span  data-ico-fontawesome="&#xf061;" class="bt_bb_icon_holder"></span>
+												</a>
+										</div>										
+										
+										{% comment %} <div class="bt_bb_button bt_bb_icon_position_right bt_bb_color_scheme_8 bt_bb_style_outline bt_bb_size_large bt_bb_width_inline bt_bb_shape_round bt_bb_align_center" data-bt-override-class="{}">
 										    <a href={{page.plink}} target="_self" class="bt_bb_link" title="Paypal Donate">
-											    <span class="bt_bb_button_text">Paypal Donate</span>
+											    <span class="bt_bb_button_text">Donate with Paypal</span>
 												    <span  data-ico-fontawesome="&#xf061;" class="bt_bb_icon_holder"></span>
 												</a>
-										</div>										
-
+										</div>										 {% endcomment %}
+										
 										<div class="bt_bb_button bt_bb_icon_position_right bt_bb_color_scheme_8 bt_bb_style_outline bt_bb_size_large bt_bb_width_inline bt_bb_shape_round bt_bb_align_center" data-bt-override-class="{}">
-										    <a href={{page.mlink}} target="_self" class="bt_bb_link" title="Paypal Donate">
-											    <span class="bt_bb_button_text">Proceed to M-Pesa</span>
-												    <span  data-ico-fontawesome="&#xf061;" class="bt_bb_icon_holder"></span>
-												</a>
-										</div>										
-
-
-
-
-
-
-
+											<form action="https://www.paypal.com/donate" method="post" target="_top">
+											    <input type="hidden" name="business" value="darius.wheel@gmail.com" />
+												<input type="hidden" name="no_recurring" value="1" />
+												<input type="hidden" name="item_name" value="Campaign" />
+												<input type="hidden" name="currency_code" value="USD" />
+												<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+												<img alt="" border="0" src="https://www.paypal.com/en_KE/i/scr/pixel.gif" width="1" height="1" />
+									
+											</form>	
 										</div>
+										
+									</div>
+
 									</div>
 									</div
 
-
-								{% comment %} </form>	 {% endcomment %}
 
 								</div>
 							</div>
