@@ -11,23 +11,23 @@ except ImportError:
 
 ALLOWED_HOSTS = ['*'] 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": config("DB_NAME", default="darius_db"),
-#         "USER": config("DB_USER", default="daru"),
-#         "PASSWORD": config("DB_PASSWORD", default="password"),
-#         "HOST": "localhost",
-#         "PORT": "",
-#     }
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": config("DB_NAME", default="darius_dev"),
+        "USER": config("DB_USER", default="darius"),
+        "PASSWORD": config("DB_PASSWORD", default="darius!passcode"),
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 
