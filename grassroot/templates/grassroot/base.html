@@ -1,0 +1,218 @@
+{% load static %}
+{% load wagtailcore_tags %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+		
+		<meta name="description" content="" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name='robots' content='max-image-preview:large' /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+
+		
+		<meta name='robots' content='max-image-preview:large' />
+		<!-- Optimized by SG Optimizer plugin version - 5.7.17 -->
+		<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+		
+		<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">//<![CDATA[
+		var gtm4wp_datalayer_name = "dataLayer";
+		var dataLayer = dataLayer || [];
+		//]]>
+		</script>
+
+		<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+		<link rel='dns-prefetch' href='../../www.google.com/index.html' />
+		<link rel='dns-prefetch' href='../../fonts.googleapis.com/index.html' />
+		<link rel='dns-prefetch' href='../../s.w.org/index.html' />
+		<link rel="alternate" type="application/rss+xml" title="GrassRoot &raquo; Feed" href="feed/index.html" />
+		<link rel="alternate" type="application/rss+xml" title="GrassRoot &raquo; Comments Feed" href="comments/feed/index.html" />
+		
+		<script type='text/javascript' src='wp-includes/js/jquery/jquery.min9d52.js?ver=3.5.1' id='jquery-core-js'></script>
+		<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+		<script type='text/javascript' src='wp-content/plugins/bold-page-builder/slick/slick.min677a.js?ver=3.0.9' id='bt_bb_slick-js'></script>
+		<script type='text/javascript' src='wp-content/plugins/bold-page-builder/content_elements_misc/js/jquery.magnific-popup.min677a.js?ver=3.0.9' id='bt_bb_magnific-js'></script>
+<script type='text/javascript' src='wp-content/plugins/bold-page-builder/content_elements_misc/js/content_elements677a.js?ver=3.0.9' id='bt_bb-js'></script>
+<script type='text/javascript' src='wp-content/plugins/bold-page-builder/script_fe677a.js?ver=3.0.9' id='bt_bb_fe-js'></script>
+<script type='text/javascript' src='wp-content/plugins/bt_cost_calculator/jquery.dde23c.js?ver=5.7' id='bt_cc_dd-js'></script>
+<script type='text/javascript' src='wp-content/plugins/bt_cost_calculator/cc.maine23c.js?ver=5.7' id='bt_cc_main-js'></script>
+<script type='text/javascript' id='bt_cc_main-js-after'>
+
+window.bt_cc_translate = [];window.bt_cc_translate['prev'] = 'Prev';window.bt_cc_translate['next'] = 'Next';window.bt_cc_translate['su'] = 'Su';window.bt_cc_translate['mo'] = 'Mo';window.bt_cc_translate['tu'] = 'Tu';window.bt_cc_translate['we'] = 'We';window.bt_cc_translate['th'] = 'Th';window.bt_cc_translate['fr'] = 'Fr';window.bt_cc_translate['sa'] = 'Sa';window.bt_cc_translate['january'] = 'January';window.bt_cc_translate['february'] = 'February';window.bt_cc_translate['march'] = 'March';window.bt_cc_translate['april'] = 'April';window.bt_cc_translate['may'] = 'May';window.bt_cc_translate['june'] = 'June';window.bt_cc_translate['july'] = 'July';window.bt_cc_translate['august'] = 'August';window.bt_cc_translate['september'] = 'September';window.bt_cc_translate['october'] = 'October';window.bt_cc_translate['november'] = 'November';window.bt_cc_translate['december'] = 'December';
+</script>
+<script type='text/javascript' src='wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker0455.js?ver=1.11.6' id='gtm4wp-form-move-tracker-js'></script>
+<link rel="https://api.w.org/" href="wp-json/index.html" /><link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/2409.json" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.7" />
+<meta name="generator" content="WooCommerce 5.1.0" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embedb0ca.json?url=http%3A%2F%2Fvox-populi.bold-themes.com%2Fgrassroot%2F" />
+<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embeddddb?url=http%3A%2F%2Fvox-populi.bold-themes.com%2Fgrassroot%2F&amp;format=xml" />
+		<script>
+		// Select the node that will be observed for mutations
+		const targetNode = document.documentElement;
+
+		// Options for the observer (which mutations to observe)
+		const config = { attributes: false, childList: true, subtree: true };
+		
+		var bold_timeline_item_button_done = false;
+		var css_override_item_done = false;
+		var css_override_group_done = false;
+		var css_override_container_done = false;
+
+		// Callback function to execute when mutations are observed
+		const callback = function( mutationsList, observer ) {
+			var i;
+			for ( i = 0; i < mutationsList.length; i++ ) {
+				if ( mutationsList[ i ].type === 'childList' ) {
+					if ( typeof jQuery !== 'undefined' && jQuery( '.bold_timeline_item_button' ).length > 0 && ! bold_timeline_item_button_done ) {
+						bold_timeline_item_button_done = true;
+						jQuery( '.bold_timeline_item_button' ).each( function() {
+							var css_override = jQuery( this ).data( 'css-override' );
+							if ( css_override != '' ) {
+								var id = jQuery( this ).attr( 'id' );
+								css_override = css_override.replace( /(\.bold_timeline_item_button)([\.\{\s])/g, '.bold_timeline_item_button#' + id + '$2' );
+								var head = document.getElementsByTagName( 'head' )[0];
+								var style = document.createElement( 'style' );
+								style.appendChild( document.createTextNode( css_override ) );
+								head.appendChild( style );
+							}
+						});
+					}
+					if ( typeof jQuery !== 'undefined' && jQuery( '.bold_timeline_item' ).length > 0 && ! css_override_item_done ) {
+						css_override_item_done = true;
+						jQuery( '.bold_timeline_item' ).each( function() {
+							var css_override = jQuery( this ).data( 'css-override' );
+							if ( css_override != '' ) {
+								var id = jQuery( this ).attr( 'id' );
+								css_override = css_override.replace( /(\.bold_timeline_item)([\.\{\s])/g, '.bold_timeline_item#' + id + '$2' );
+								var head = document.getElementsByTagName( 'head' )[0];
+								var style = document.createElement( 'style' );
+								style.appendChild( document.createTextNode( css_override ) );
+								head.appendChild( style );
+							}
+						});
+					}
+					if ( typeof jQuery !== 'undefined' && jQuery( '.bold_timeline_group' ).length > 0 && ! css_override_group_done ) {
+						css_override_group_done = true;
+						jQuery( '.bold_timeline_group' ).each( function() {
+							var css_override = jQuery( this ).data( 'css-override' );
+							if ( css_override != '' ) {
+								var id = jQuery( this ).attr( 'id' );
+								css_override = css_override.replace( /(\.bold_timeline_group)([\.\{\s])/g, '.bold_timeline_group#' + id + '$2' );
+								var head = document.getElementsByTagName( 'head' )[0];
+								var style = document.createElement( 'style' );
+								style.appendChild( document.createTextNode( css_override ) );
+								head.appendChild( style );
+							}
+						});
+					}
+					if ( typeof jQuery !== 'undefined' && jQuery( '.bold_timeline_container' ).length > 0 && ! css_override_container_done ) {
+						css_override_container_done = true;
+						jQuery( '.bold_timeline_container' ).each( function() {
+							var css_override = jQuery( this ).data( 'css-override' );
+							if ( css_override != '' ) {
+								var id = jQuery( this ).attr( 'id' );
+								css_override = css_override.replace( /(\.bold_timeline_container)([\.\{\s])/g, '#' + id + '$2' );
+								var head = document.getElementsByTagName( 'head' )[0];
+								var style = document.createElement( 'style' );
+								style.appendChild( document.createTextNode( css_override ) );
+								head.appendChild( style );
+							}
+						});
+					}
+				}
+			}
+		};
+
+		// Create an observer instance linked to the callback function
+		const observer = new MutationObserver(callback);
+
+		// Start observing the target node for configured mutations
+		observer.observe(targetNode, config);
+
+		// Later, you can stop observing
+		document.addEventListener( 'DOMContentLoaded', function() { observer.disconnect(); }, false );
+
+		</script>
+	
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">//<![CDATA[
+	var dataLayer_content = {"pagePostType":"frontpage","pagePostType2":"single-page","pagePostAuthor":"BoldThemes"};
+	dataLayer.push( dataLayer_content );//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K7CPP5L');//]]>
+</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+
+
+
+
+
+
+
+ 
+		
+
+		<!-- END recaptcha -->
+		<link rel="icon" href={{page.header.faicon.url}} sizes="32x32" />
+		<link rel="icon" href={{page.header.faicon.url}} sizes="192x192" />
+		<link rel="apple-touch-icon" href={{page.header.faicon.url}} />
+		<meta name="msapplication-TileImage" content="http://vox-populi.bold-themes.com/grassroot/wp-content/uploads/sites/4/2019/04/cropped-logo_black-1-270x270.png" />
+
+
+        {# Global stylesheets #}
+        {% include 'grassroot/style_css.html' %}   {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+
+    </head>
+	<body class="home page-template-default page page-id-2409 page-parent theme-vox-populi bt_bb_plugin_active bt_bb_fe_preview_toggle woocommerce-no-js btHeadingWeight_semi-bold btHasAltLogo btMenuRightEnabled btHideHeadline btLightSkin btBelowMenu noBodyPreloader btHardRoundedButtons btLightDarkHeader btNoSidebar" >
+	    <div class="btPageWrap" id="top">
+		{% include 'header.html' %}
+
+        {% block content %}{% endblock %}
+		
+		{% include 'grassroot/footer.html' %}
+
+		</div><!-- /pageWrap -->
+
+        {# Global javascript #}
+		{% include 'grassroot/scripts.html' %}   
+
+		
+		{% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+
+
+		</body>
+
+
+</html>
