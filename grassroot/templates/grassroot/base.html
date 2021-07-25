@@ -188,7 +188,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
         {# Global stylesheets #}
-        {% include 'grassroot/style_css.html' %}   {% block extra_css %}
+        {% include 'grassroot/style_css.html' %}  
+		{% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
 
