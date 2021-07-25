@@ -91,9 +91,7 @@ jobs:
         mkdir -p ~/uda-party-website/uda-party-website/migrations/home/migrations
         mkdir -p ~/uda-party-website/uda-party-website/migrations/search/migrations
         mkdir -p ~/uda-party-website/uda-party-website/migrations/grassroot/migrations
-        # mkdir -p ~/uda-party-website/uda-party-website/migrations/mpesa_api/core/migrations
-        # mkdir -p ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn/migrations
-        # mkdir -p ~/uda-party-website/uda-party-website/migrations/paypal/pro/migrations
+
 
         cd ~/uda-party-website/uda-party-website/migrations
         tree
@@ -105,9 +103,7 @@ jobs:
         rsync -a --delete ~/uda-party-website/uda-party-website/migrations/home/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/home
         rsync -a --delete ~/uda-party-website/uda-party-website/migrations/search/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/search
         rsync -a --delete ~/uda-party-website/uda-party-website/migrations/grassroot/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/grassroot
-        # rsync -a --delete ~/uda-party-website/uda-party-website/migrations/mpesa_api/core/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/mpesa_api/core
-        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/standard/ipn
-        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/paypal/pro/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/pro
+
 
         
     - name: COLLECTSTATIC
@@ -123,9 +119,7 @@ jobs:
         python manage.py makemigrations candidate
         python manage.py makemigrations home
         python manage.py makemigrations search
-        # python manage.py makemigrations core
-        # python manage.py makemigrations ipn
-        # python manage.py makemigrations pro
+
 
     ## candidate
     - name: MIGRATE-candidate
@@ -174,42 +168,7 @@ jobs:
         cd ~/uda-party-website/uda-party-website/migrations/grassroot
         tree    
 
-    ## core
-    # - name: MIGRATE-core
-    #   run: |
-    #     cd ~/actions-runner/deploy/uda-party-website/-party-website        
-    #     python manage.py migrate core
-
-    # - name: Rsync Workin Directory to Backup Migrations-core
-    #   run: |
-    #     rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/mpesa_api/core/migrations ~/uda-party-website/uda-party-website/migrations/mpesa_api/core
-    #     cd ~/uda-party-website/uda-party-website/migrations/mpesa_api/core
-    #     tree   
-
-    ## ipn
-    # - name: MIGRATE-ipn
-    #   run: |
-    #     cd ~/actions-runner/deploy/uda-party-website/-party-website        
-    #     # python manage.py migrate ipn
-
-    # - name: Rsync Workin Directory to Backup Migrations-ipn
-    #   run: |
-    #     rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/standard/ipn/migrations ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn 
-    #     cd ~/uda-party-website/uda-party-website/migrations/paypal/standard/ipn
-    #     tree 
-
-    # ## pro
-    # - name: MIGRATE-pro
-    #   run: |
-    #     cd ~/actions-runner/deploy/uda-party-website/-party-website        
-    #     python manage.py migrate pro
-
-    # - name: Rsync Workin Directory to Backup Migrations-pro
-    #   run: |
-    #     rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/paypal/pro/migrations ~/uda-party-website/uda-party-website/migrations/paypal/pro 
-    #     cd ~/uda-party-website/uda-party-website/migrations/paypal/pro
-    #     tree 
-
+    
     - name: Backup Migrations_Updated
       run: |
         cd ~/uda-party-website/uda-party-website/migrations
