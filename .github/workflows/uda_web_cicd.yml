@@ -42,7 +42,7 @@ jobs:
 
         # cd ~/actions-runner/deploy/uda-party-website/uda-party-website        
         # python manage.py collectstatic
-        python manage.py makemigrations grassroot
+        # python manage.py makemigrations grassroot
         python manage.py makemigrations candidate
         python manage.py makemigrations home
         python manage.py makemigrations search
@@ -90,7 +90,7 @@ jobs:
         mkdir -p ~/uda-party-website/uda-party-website/migrations/candidate/migrations
         mkdir -p ~/uda-party-website/uda-party-website/migrations/home/migrations
         mkdir -p ~/uda-party-website/uda-party-website/migrations/search/migrations
-        mkdir -p ~/uda-party-website/uda-party-website/migrations/grassroot/migrations
+        # mkdir -p ~/uda-party-website/uda-party-website/migrations/grassroot/migrations
 
 
         cd ~/uda-party-website/uda-party-website/migrations
@@ -102,7 +102,7 @@ jobs:
         rsync -a --delete ~/uda-party-website/uda-party-website/migrations/candidate/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/candidate
         rsync -a --delete ~/uda-party-website/uda-party-website/migrations/home/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/home
         rsync -a --delete ~/uda-party-website/uda-party-website/migrations/search/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/search
-        rsync -a --delete ~/uda-party-website/uda-party-website/migrations/grassroot/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/grassroot
+        # rsync -a --delete ~/uda-party-website/uda-party-website/migrations/grassroot/migrations ~/actions-runner/deploy/uda-party-website/uda-party-website/grassroot
 
 
         
@@ -156,17 +156,17 @@ jobs:
         cd ~/uda-party-website/uda-party-website/migrations/search
         tree
 
-    # grassroot
-    - name: MIGRATE-grassroot
-      run: |
-        cd ~/actions-runner/deploy/uda-party-website/uda-party-website        
-        python manage.py migrate grassroot
+    # # grassroot
+    # - name: MIGRATE-grassroot
+    #   run: |
+    #     cd ~/actions-runner/deploy/uda-party-website/uda-party-website        
+    #     python manage.py migrate grassroot
 
-    - name: Rsync Workin Directory to Backup Migrations-grassroot
-      run: |
-        rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/grassroot/migrations ~/uda-party-website/uda-party-website/migrations/grassroot
-        cd ~/uda-party-website/uda-party-website/migrations/grassroot
-        tree    
+    # - name: Rsync Workin Directory to Backup Migrations-grassroot
+    #   run: |
+    #     rsync -a --delete ~/actions-runner/deploy/uda-party-website/uda-party-website/grassroot/migrations ~/uda-party-website/uda-party-website/migrations/grassroot
+    #     cd ~/uda-party-website/uda-party-website/migrations/grassroot
+    #     tree    
 
     
     - name: Backup Migrations_Updated
