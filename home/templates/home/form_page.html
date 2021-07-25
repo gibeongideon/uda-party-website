@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags%}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+
+{% endblock extra_css %}
+
+{% block content %}
+<div class="btContentWrap btClear">
+						<div class="btContentHolder">
+			
+			<div class="btContent">
+			<div class="bt_bb_wrapper"><section id="bt_bb_section6078b93b7d105" data-parallax="0.4" data-parallax-offset="0" class="bt_bb_section bt_bb_top_spacing_large bt_bb_bottom_spacing_large bt_bb_color_scheme_1 bt_bb_layout_boxed_1200 bt_bb_vertical_align_top bt_bb_background_image bt_bb_parallax" style="background-image:url(http://safaricom.zerod.live/?c=77);"><div class="bt_bb_port"><div class="bt_bb_cell"><div class="bt_bb_cell_inner"><div  class="bt_bb_row" ><div  class="bt_bb_column col-xl-12 bt_bb_align_center bt_bb_vertical_align_top bt_bb_animation_fade_in animate bt_bb_padding_normal bt_bb_shape_inherit"  data-width="12" data-bt-override-class="{}"><div class="bt_bb_column_content"><div class="bt_bb_column_content_inner"><div class="bt_bb_separator bt_bb_top_spacing_large bt_bb_border_style_none"></div><header class="bt_bb_headline bt_bb_font_weight_bold bt_bb_dash_top bt_bb_size_huge bt_bb_superheadline bt_bb_align_inherit" data-bt-override-class="{}"><h1 class="bt_bb_headline_tag"><span class="bt_bb_headline_superheadline">Get in touch</span><span class="bt_bb_headline_content"><span>Contact</span></span></h1></header><div class="bt_bb_separator bt_bb_bottom_spacing_medium bt_bb_border_style_none"></div></div></div></div></div></div></div></div></section><section id="bt_bb_section6078b93b7d4ef"  class="bt_bb_section bt_bb_top_spacing_large bt_bb_bottom_spacing_medium bt_bb_color_scheme_14 bt_bb_layout_boxed_1200 bt_bb_vertical_align_top" ><div class="bt_bb_port"><div class="bt_bb_cell"><div class="bt_bb_cell_inner"><div  class="bt_bb_row" ><div  class="bt_bb_column col-xl-6 bt_bb_align_left bt_bb_vertical_align_top bt_bb_animation_fade_in animate bt_bb_padding_normal bt_bb_shape_inherit"  data-width="6" data-bt-override-class="{}"><div class="bt_bb_column_content"><div class="bt_bb_column_content_inner"><div class="bt_bb_contact_form_7"><div role="form" class="wpcf7" id="wpcf7-f2271-p13-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+
+        <form action="{% pageurl page %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
+{% comment %} <form action="http://vox-populi.bold-themes.com/grassroot/about-us/contact/#wpcf7-f2271-p13-o1" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="2271" />
+<input type="hidden" name="_wpcf7_version" value="5.4" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2271-p13-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="13" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+<input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</div>
+<div class="btJoinParty">
+<p class="btLabel">First & Last name</p>
+<div class="btInput"><span class="wpcf7-form-control-wrap first-name"><input type="text" name="first-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span></div>
+<p class="btLabel">Email address</p>
+<div class="btInput"><span class="wpcf7-form-control-wrap email-address"><input type="email" name="email-address" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span></div>
+<p class="btLabel">Subject</p>
+<div class="btInput"><span class="wpcf7-form-control-wrap your-subject"><input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span></div>
+<p class="btLabel">Message</p>
+<div class="btInput"><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></textarea></span></div>
+<div class="btButton"><input type="submit" value="Send Message" class="wpcf7-form-control wpcf7-submit" /></div>
+</div>
+<div class="wpcf7-response-output" aria-hidden="true"></div>
+
+</form> {% endcomment %}
+
+</div></div><div class="bt_bb_separator bt_bb_bottom_spacing_medium bt_bb_border_style_none"></div></div></div></div><div  class="bt_bb_column col-xl-6 bt_bb_align_left bt_bb_vertical_align_top bt_bb_animation_fade_in animate bt_bb_padding_normal bt_bb_shape_inherit"  data-width="6" data-bt-override-class="{}"><div class="bt_bb_column_content"><div class="bt_bb_column_content_inner"><div class="bt_bb_google_maps bt_bb_map" data-center="no"><div class="bt_bb_google_maps_map bt_bb_map_map" id="map_canvas6078b93b7dea1" style="height:660px"></div><div class="bt_bb_google_maps_location bt_bb_map_location bt_bb_google_maps_location_without_content bt_bb_map_location_without_content" data-lat="40.7637551" data-lng="-73.9907991" data-icon="http://safaricom.zerod.live/?c=77"></div></div><div class="bt_bb_separator bt_bb_bottom_spacing_medium bt_bb_border_style_none"></div></div></div></div></div></div></div></div></section></div>		</div><!-- /boldthemes_content -->
+ 
+	</div><!-- /contentHolder -->
+</div><!-- /contentWrap -->
+
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% load static %}
+{% load wagtailcore_tags %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name='robots' content='max-image-preview:large' />
+
+    
+ 
+        {% comment %} <meta name="msapplication-TileImage" content="http://vox-populi.bold-themes.com/party/wp-content/uploads/sites/3/2019/04/cropped-logo_black-1-270x270.png" /> {% endcomment %}
+<!-- END recaptcha -->
+<link rel="icon" href={{page.header.faicon.url}} sizes="32x32" />
+<link rel="icon" href={{page.header.faicon.url}} sizes="192x192" />
+<link rel="apple-touch-icon" href={{page.header.faicon.url}} />
+
+
+        {# Global stylesheets #}
+        {% include 'style_css.html' %}
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+
+    <body class="page-template-default page page-id-2134 page-child parent-pageid-2321 theme-vox-populi bt_bb_plugin_active bt_bb_fe_preview_toggle woocommerce-no-js btHeadingWeight_bold btHasAltLogo btMenuRightEnabled btStickyEnabled btHideHeadline btLightSkin btBelowMenu btNoDashInSidebar noBodyPreloader btSoftRoundedButtons btTransparentLightHeader btNoSidebar" >
+
+<div class="btPageWrap" id="top">
+	    {% include 'header.html' %}
+        
+        {% block content %}{% endblock %}
+
+	    </div><!-- /pageWrap -->
+
+	   {% include 'footer.html' %}
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/uda_party.js' %}"></script>
+        {% include 'scripts.html' %}       
+</div><!-- /pageWrap -->
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+
+
+    </body>
+</html>
