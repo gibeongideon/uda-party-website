@@ -9,7 +9,7 @@ try:
 except ImportError:
     pass
 
-ALLOWED_HOSTS = ['*'] 
+ALLOWED_HOSTS = ['127.0.0.1','143.198.106.177','uda-party.ga','www.uda-party.ga'] 
 
 DATABASES = {
     'default': {

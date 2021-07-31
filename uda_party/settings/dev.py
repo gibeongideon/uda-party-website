@@ -7,7 +7,7 @@ DEBUG = True
 SECRET_KEY = 'django-insecure-q1bz++yt+2!lb%!ds+ju+s&%3e2o1dr8dras25(#7$-og&3(d^'
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ['143.198.106.177','uda-party.ga','www.uda-party.ga'] 
+ALLOWED_HOSTS = ['127.0.0.1','143.198.106.177','uda-party.ga','www.uda-party.ga'] 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -21,23 +21,23 @@ except ImportError:
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": config("DB_NAME", default="darius_dev"),
-#         "USER": config("DB_USER", default="darius"),
-#         "PASSWORD": config("DB_PASSWORD", default="darius!passcode"),
-#         "HOST": "localhost",
-#         "PORT": "",
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": config("DB_NAME", default="darius_dev"),
+        "USER": config("DB_USER", default="darius"),
+        "PASSWORD": config("DB_PASSWORD", default="darius!passcode"),
+        "HOST": "localhost",
+        "PORT": "",
+    }
+}
 
 PAYPAL_RECEIVER_EMAIL ="darius@daruspin.com"
 

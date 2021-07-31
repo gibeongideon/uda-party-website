@@ -252,7 +252,7 @@ class Advert(models.Model):
     ]
 
     def __str__(self):
-        return self.text
+        return str(self.text)
 
 @register_snippet
 class Header(models.Model):
@@ -275,7 +275,7 @@ class Header(models.Model):
     ]
 
     def __str__(self):
-        return self.text
+        return str(self.text)
 
 
 @register_snippet
@@ -314,7 +314,7 @@ class Footer(models.Model):
     ]
 
     def __str__(self):
-        return self.text
+        return str(self.text)
 
 
 
