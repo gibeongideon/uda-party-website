@@ -106,10 +106,10 @@ jobs:
 
 
         
-    - name: COLLECTSTATIC
-      run: |
-        cd ~/actions-runner/deploy/uda-party-website/uda-party-website                
-        python manage.py collectstatic
+    # - name: COLLECTSTATIC
+    #   run: |
+    #     cd ~/actions-runner/deploy/uda-party-website/uda-party-website                
+    #     python manage.py collectstatic
 
     - name: MAKEMIGRATIONS
       run: |
