@@ -1,13 +1,13 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True 
+DEBUG =False 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-q1bz++yt+2!lb%!ds+ju+s&%3e2o1dr8dras25(#7$-og&3(d^'
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ['127.0.0.1','143.198.106.177','uda-party.ga','www.uda-party.ga',"localhost"] 
+ALLOWED_HOSTS = ['127.0.0.1','143.198.106.177','uda-party.ga','www.uda-party.ga',"local"] 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
