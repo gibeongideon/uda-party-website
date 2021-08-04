@@ -178,7 +178,7 @@ jobs:
     - name: COLLECTSTATIC
       run: |
         cd ~/actions-runner/deploy/uda-party-website/uda-party-website                
-        python manage.py collectstatic
+        python manage.py collectstatic -v0 --noinput
 
 
 
